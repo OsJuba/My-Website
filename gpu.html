@@ -1,0 +1,20 @@
+<!DOCTYPE html>  
+<canvas id="doom"></canvas>  
+<script>  
+const canvas = document.getElementById('doom');  
+canvas.width = 65536;  
+canvas.height = 65536;  
+
+const gl = canvas.getContext('webgl');  
+const texture = gl.createTexture();  
+
+gl.bindTexture(gl.TEXTURE_2D, texture);  
+gl.texImage2D(  
+  gl.TEXTURE_2D,  
+  0,  
+  gl.RGBA,  
+  gl.RGBA,  
+  gl.UNSIGNED_BYTE,  
+  new ImageData(new Uint8ClampedArray(4 * 65536 * 65536), 65536, 65536)  
+);  
+</script>  
